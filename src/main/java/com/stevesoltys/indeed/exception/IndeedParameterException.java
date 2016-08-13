@@ -1,6 +1,8 @@
 package com.stevesoltys.indeed.exception;
 
 /**
+ * Occurs when a required parameter is not given in a search query.
+ *
  * @author Steve Soltys
  */
 public class IndeedParameterException extends IndeedException {
