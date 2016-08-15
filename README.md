@@ -1,5 +1,5 @@
 # Indeed
-[![Build Status](https://travis-ci.com/stevesoltys/indeed.svg?token=p8s7S7quPerPhARM711E&branch=master)](https://travis-ci.com/stevesoltys/indeed)
+[![Build Status](https://travis-ci.org/stevesoltys/indeed.svg?branch=master)](https://travis-ci.org/stevesoltys/indeed)
 
 An Indeed search API wrapper.
 
@@ -8,37 +8,25 @@ Create an `Indeed` instance with your publisher ID, build a search query, and ru
 
 Here's an example:
 ```java
-public class Test {
+Indeed indeed = new Indeed("1234567890");
 
-    public static void main(String args[]) {
-        Indeed indeed = new Indeed("1234567890");
+IndeedSearchResults searchResults = indeed.search()
+    .query("Java").location("NYC")
+    .radius(30).start(50).limit(100).run();
 
-        IndeedSearchResults searchResults = indeed.search()
-                .query("Java").location("NYC")
-                .radius(30).start(50).limit(100).run();
+int total = searchResults.getTotalResults();
 
-        int total = searchResults.getTotalResults();
+List<IndeedResult> results = searchResults.getResults();
 
-        List<IndeedResult> results = searchResults.getResults();
-
-        // ...
-    }
-}
+// ...
 ```
 
 You can also get an `IndeedResult` for a particular job, if you have the job key:
 ```java
-public class Test {
+Indeed indeed = new Indeed("1234567890");
 
-    public static void main(String args[]) {
-        Indeed indeed = new Indeed("1234567890");
-
-        IndeedResult result = indeed.getJob("1a2b3c4d5e6f7g8h9");
-        System.out.println(result.getTitle() + " at " + result.getCompany());
-
-        // ...
-    }
-}
+IndeedResult result = indeed.getJob("1a2b3c4d5e6f7g8h9");
+System.out.println(result.getTitle() + " at " + result.getCompany());
 ```
 
 
