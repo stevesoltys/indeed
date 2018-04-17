@@ -31,7 +31,8 @@ System.out.println(result.getTitle() + " at " + result.getCompany());
 
 
 ## Development
-After checking out the repo, run `gradle build` to build the project. Then, run `gradle test` to run the tests.
+After checking out the repo, run `gradle build` to build the project. If you want to run the tests, you must first 
+define an environmental variable `INDEED_PUBLISHER_KEY` as your API key. Then, run `gradle test`.
 
 ## License
 This application is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
