@@ -1,11 +1,32 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.8.1'
+    }
+}
+
 plugins {
     id 'io.franzbecker.gradle-lombok' version '1.11'
 }
 
-group 'com.stevesoltys'
-version '1.0'
+ext {
+    projectOrganization = 'stevesoltys'
+    projectGroup = 'com.stevesoltys'
+    projectName = 'indeed'
+    projectVersion = '0.1.0'
+
+    projectDescription = 'An Indeed search API wrapper.'
+    projectWebsite = 'https://github.com/stevesoltys/indeed'
+    projectLicense = 'MIT'
+}
+
+group = projectGroup
+version = projectVersion
 
 apply plugin: 'java'
+apply plugin: 'com.novoda.bintray-release'
 
 sourceCompatibility = 1.8
 
@@ -14,7 +35,18 @@ repositories {
 }
 
 dependencies {
-    compileOnly "org.projectlombok:lombok:1.16.16"
+    compileOnly "org.projectlombok:lombok:1.16.20"
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+publish {
+    userOrg = "${projectOrganization}"
+    groupId = "${projectGroup}"
+    artifactId = "${projectName}"
+    publishVersion = "${projectVersion}"
+
+    desc = "${projectDescription}"
+    website = "${projectWebsite}"
+    licences = [ "${projectLicense}" ]
 }
