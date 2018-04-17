@@ -2,7 +2,6 @@ package com.stevesoltys.indeed.util;
 
 import com.stevesoltys.indeed.exception.IndeedParseException;
 import com.stevesoltys.indeed.model.IndeedResult;
-import com.stevesoltys.indeed.model.IndeedResultBuilder;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -121,7 +120,7 @@ public class ResultParser {
      * @throws IndeedParseException If there is an error while parsing the node.
      */
     IndeedResult parseResult(Node node) throws IndeedParseException {
-        IndeedResultBuilder resultBuilder = new IndeedResultBuilder();
+        IndeedResult.IndeedResultBuilder resultBuilder = IndeedResult.builder();
 
         NodeList children = node.getChildNodes();
 
@@ -142,41 +141,42 @@ public class ResultParser {
      * @param value   The value.
      * @throws IndeedParseException If there is an error while parsing the attribute value.
      */
-    private void parseAttribute(IndeedResultBuilder builder, String key, String value) throws IndeedParseException {
+    private void parseAttribute(IndeedResult.IndeedResultBuilder builder, String key, String value)
+            throws IndeedParseException {
 
         switch (key) {
 
             case JOB_TITLE_TAG:
-                builder.setTitle(value);
+                builder.title(value);
                 break;
 
             case COMPANY_TAG:
-                builder.setCompany(value);
+                builder.company(value);
                 break;
 
             case CITY_TAG:
-                builder.setCity(value);
+                builder.city(value);
                 break;
 
             case STATE_TAG:
-                builder.setState(value);
+                builder.state(value);
                 break;
 
             case COUNTRY_TAG:
-                builder.setCountry(value);
+                builder.country(value);
                 break;
 
             case FORMATTED_LOCATION_TAG:
-                builder.setFormattedLocation(value);
+                builder.formattedLocation(value);
                 break;
 
             case SOURCE_TAG:
-                builder.setSource(value);
+                builder.source(value);
                 break;
 
             case DATE_TAG:
                 try {
-                    builder.setDate(DATE_FORMAT.parse(value));
+                    builder.date(DATE_FORMAT.parse(value));
 
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -185,12 +185,12 @@ public class ResultParser {
                 break;
 
             case SNIPPET_TAG:
-                builder.setSnippet(value);
+                builder.snippet(value);
                 break;
 
             case URL_TAG:
                 try {
-                    builder.setUrl(new URL(value));
+                    builder.url(new URL(value));
 
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -201,43 +201,43 @@ public class ResultParser {
             case LATITUDE_TAG:
                 double latitude = Double.parseDouble(value);
 
-                builder.setLatitude(latitude);
+                builder.latitude(latitude);
                 break;
 
             case LONGITUDE_TAG:
                 double longitude = Double.parseDouble(value);
 
-                builder.setLongitude(longitude);
+                builder.longitude(longitude);
                 break;
 
             case JOB_KEY_TAG:
-                builder.setJobKey(value);
+                builder.jobKey(value);
                 break;
 
             case SPONSORED_TAG:
                 boolean sponsered = Boolean.parseBoolean(value);
 
-                builder.setSponsored(sponsered);
+                builder.sponsored(sponsered);
                 break;
 
             case EXPIRED_TAG:
                 boolean expired = Boolean.parseBoolean(value);
 
-                builder.setExpired(expired);
+                builder.expired(expired);
                 break;
 
             case INDEED_APPLY_TAG:
                 boolean indeedApply = Boolean.parseBoolean(value);
 
-                builder.setIndeedApply(indeedApply);
+                builder.indeedApply(indeedApply);
                 break;
 
             case FORMATTED_LOCATION_FULL_TAG:
-                builder.setFormattedLocationFull(value);
+                builder.formattedLocationFull(value);
                 break;
 
             case FORMATTED_RELATIVE_TIME_TAG:
-                builder.setFormattedRelativeTime(value);
+                builder.formattedRelativeTime(value);
                 break;
 
         }

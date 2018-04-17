@@ -1,5 +1,7 @@
 package com.stevesoltys.indeed.model;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,7 @@ import java.util.List;
  *
  * @author Steve Soltys
  */
+@Data
 public class IndeedSearchResults {
 
     /**
@@ -19,28 +22,4 @@ public class IndeedSearchResults {
      * number of results given for this particular search.
      */
     private final int totalResults;
-
-    public IndeedSearchResults(List<IndeedResult> results, int totalResults) {
-        this.results = results;
-        this.totalResults = totalResults;
-    }
-
-    /**
-     * Gets the result list.
-     *
-     * @return The result list.
-     */
-    public List<IndeedResult> getResults() {
-        return results;
-    }
-
-    /**
-     * Gets total number of results. Note that this is not the number of results in this list alone. It is the total
-     * number of results given for this particular search.
-     *
-     * @return The total number of results.
-     */
-    public int getTotalResults() {
-        return totalResults;
-    }
 }

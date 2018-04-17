@@ -30,7 +30,7 @@ public class ResponseParserTest {
     private String jobResponse;
 
     @Before
-    public void initialize() throws Exception {
+    public void initialize() {
         this.responseParser = new ResponseParser(new ResultParser());
 
         this.searchResponse = new MockResponseBuilder().buildSearchResponse();
