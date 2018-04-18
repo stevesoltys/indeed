@@ -1,7 +1,20 @@
 # Indeed
+[![Download](https://api.bintray.com/packages/stevesoltys/maven/indeed/images/download.svg?version=0.1.0)](https://bintray.com/stevesoltys/maven/indeed/0.1.0/link)
 [![Build Status](https://travis-ci.org/stevesoltys/indeed.svg?branch=master)](https://travis-ci.org/stevesoltys/indeed)
+[![License](https://img.shields.io/github/license/stevesoltys/indeed.svg)](https://github.com/stevesoltys/indeed/blob/master/LICENSE)
 
 An Indeed search API wrapper.
+
+## Installation
+```groovy
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.stevesoltys.indeed:indeed:0.1.0'
+}
+```
 
 ## Usage
 Create an `Indeed` instance with your publisher ID, build a search query, and run it.
@@ -31,7 +44,7 @@ System.out.println(result.getTitle() + " at " + result.getCompany());
 
 
 ## Development
-After checking out the repo, run `gradle build` to build the project. If you want to run the tests, you must first 
+After checking out the repo, run `gradle compileJava` to build the project. If you want to run the tests, you must first 
 define an environmental variable `INDEED_PUBLISHER_KEY` as your API key. Then, run `gradle test`.
 
 ## License
