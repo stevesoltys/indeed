@@ -13,7 +13,7 @@ plugins {
 
 ext {
     projectOrganization = 'stevesoltys'
-    projectGroup = 'com.stevesoltys'
+    projectGroup = 'com.stevesoltys.indeed'
     projectName = 'indeed'
     projectVersion = '0.1.0'
 
