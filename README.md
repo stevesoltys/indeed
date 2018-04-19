@@ -1,7 +1,5 @@
 # Indeed
-[![Download](https://api.bintray.com/packages/stevesoltys/maven/indeed/images/download.svg?version=0.1.0)](https://bintray.com/stevesoltys/maven/indeed/0.1.0/link)
 [![Build Status](https://travis-ci.org/stevesoltys/indeed.svg?branch=master)](https://travis-ci.org/stevesoltys/indeed)
-[![License](https://img.shields.io/github/license/stevesoltys/indeed.svg)](https://github.com/stevesoltys/indeed/blob/master/LICENSE)
 
 An Indeed search API wrapper.
 
